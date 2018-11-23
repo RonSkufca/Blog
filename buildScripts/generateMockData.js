@@ -4,7 +4,7 @@
 
 /* eslint-disable no-console */
 import jsonSchemaFaker from 'json-schema-faker';
-import {schema} from './mockDataSchema';						// import the schema we defined
+import {schema} from './mockDataSchema';					// import the schema we defined
 import fs from 'fs';															// adds the ability to write to a file
 import chalk from 'chalk';												// adds color to our output
 

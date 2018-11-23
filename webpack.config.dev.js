@@ -1,4 +1,5 @@
 import path from 'path';
+import webpackConfigDev from './webpack.config.dev';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
@@ -30,9 +31,10 @@ export default {
 	plugins: [
 		// Create HTML file that includes reference to bundled JS.
 		new HtmlWebpackPlugin({
+			filename: 'home.html',
 			template: 'src/home.html',	// declare this is our template
-			inject: true										// tells webpack to inject any necessary script tags for me
-																			// this means you can remove the script tag from home.html
+			inject: true								// tells webpack to inject any necessary script tags for me
+																	// this means you can remove the script tag from home.html
 		})
 	],
 	// tell webpack which file types it is going to handle. This concept is called loaders.
