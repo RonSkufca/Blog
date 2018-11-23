@@ -9,6 +9,6 @@ body {
 	background-attachment:  scroll;
 	position: relative;
 	background-size: cover;
-	/*background-image: url('header.jpg');*/
+	background-image: url('./images/header.jpg');
 	height: 500px;
 }

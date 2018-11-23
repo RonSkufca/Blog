@@ -1,5 +1,5 @@
 import path from 'path';
-import webpackConfigDev from './webpack.config.dev';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
@@ -29,6 +29,9 @@ export default {
 
 	// define pulgins to enhance webpacks power i.e. hot realoading, error trapping, style linting, etc...
 	plugins: [
+		// Generate an external css file with a hash in the filename
+		new ExtractTextPlugin('[name].css'),
+
 		// Create HTML file that includes reference to bundled JS.
 		new HtmlWebpackPlugin({
 			filename: 'home.html',
@@ -42,9 +45,26 @@ export default {
 	// adding a loader here means it can import those file types at the top of my javascript files and
 	// webpack will intellegently bundle the files together for me.
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loaders: ['style','css']}
+		loaders: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loaders: ['babel']
+			},
+			// adding the ?sourceMap query string instructs webpack to generate a css source map
+      {
+				test: /\.css$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: {
+						loader: 'css-loader',
+						options:
+						{
+							sourceMap: true
+						}
+					}
+				})
+			}
     ]
   }
 }
