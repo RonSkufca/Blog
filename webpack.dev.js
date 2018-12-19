@@ -1,5 +1,4 @@
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -61,7 +60,7 @@ module.exports = {
                         options: {
                             // On development we want to see where the file is coming from, hence we preserve the [path]
                             name: '[path][name].[ext]?hash=[hash:20]',
-                            limit: 8192
+                            limit: 8192 // Convert images < 8kb to base64 strings
                         }
                     }
                 ]
