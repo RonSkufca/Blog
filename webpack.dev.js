@@ -1,9 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     devtool: 'eval-cheap-module-source-map',
     entry: './src/index.js',
+    output: {
+        publicPath: '/dist/'
+    },
     devServer: {
         port: 8080,
         contentBase: path.join(__dirname, "dist")
@@ -70,7 +74,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
+            filename: 'index.html',
             inject: true
-        })
+        }),
+        new CopyWebpackPlugin([
+            { from: './src/pages', to: './' }
+        ])
     ]
 };
