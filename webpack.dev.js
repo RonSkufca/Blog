@@ -1,16 +1,24 @@
+// this is a commonJs module
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    watch:true,
     devtool: 'eval-cheap-module-source-map',
+    // defines the entry point of the application
+	// __dirname is part of node and uses the 'path' import
+	// this sets the entry point for our application to src/index.js
     entry: './src/index.js',
     output: {
         publicPath: '/dist/'
     },
     devServer: {
         port: 8080,
-        contentBase: path.join(__dirname, "dist")
+        contentBase: path.join(__dirname, "dist"),
+        watchContentBase: true,
+        stats: 'normal'
     },
     node: {
         fs: 'empty'
