@@ -1,4 +1,4 @@
-// this is a commonJs module
+// this is a commonJS module
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,7 +12,8 @@ module.exports = {
 	// this sets the entry point for our application to src/index.js
     entry: './src/index.js',
     output: {
-        publicPath: '/dist/'
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     devServer: {
         port: 8080,
@@ -85,8 +86,10 @@ module.exports = {
             filename: 'index.html',
             inject: true
         }),
-        new CopyWebpackPlugin([
-            { from: './src/pages', to: './' }
-        ])
+        new HtmlWebpackPlugin({
+            template: './about.html',
+            filename: 'about.html',
+            inject: true
+        })
     ]
 };

@@ -2,11 +2,11 @@
     "name": "blog",
     "version": "2.0.0",
     "description": "Blog of Ron Skufca",
-    "main": "index.js",
+    "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack-dev-server --config webpack.dev.js --mode development",
-        "buildDev": "webpack --config webpack.dev.js --mode development",
+        "buildDev": "webpack --config webpack.dev.js --mode development --progress",
         "buildProd": "webpack --config webpack.prod.js --mode production",
         "preview": "npm run build && http-server dist"
     },
