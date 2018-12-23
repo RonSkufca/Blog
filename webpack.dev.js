@@ -2,7 +2,7 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+//const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     watch:true,
@@ -89,6 +89,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './about.html',
             filename: 'about.html',
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './contact.html',
+            filename: 'contact.html',
             inject: true
         })
     ]
