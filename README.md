@@ -1,4 +1,4 @@
-## This repo has moved to https://dev.azure.com/ronskufca/Blog/_git/Blog/
+## The original repo has moved to https://dev.azure.com/ronskufca/Blog/_git/Blog/ Initially I assumed I would create a blog engine from scratch, but now I have decided to just pay for a blogging platmform like WordPress. This is now simply a place to put posts because I can't get to my google drive from this company shitty locked down laptop. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
